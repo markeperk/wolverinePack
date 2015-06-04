@@ -1,1 +1,1 @@
-angular.module('wolverineApp', ['']); 
+angular.module('wolverineApp', ['ui.router']); 
