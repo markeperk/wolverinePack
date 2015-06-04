@@ -11,16 +11,16 @@ $scope.bookmarks = bookmarks;
     bookmarks = JSON.stringify(bookmarkTree);
   })
 
-	// function fetch_bookmarks(parentNode) {
-	//         parentNode.forEach(function(bookmark) {
-	//             if(! (bookmark.url === undefined || bookmark.url === null)) {
-	//                 bm_urls.push(bookmark.url);
-	//             }
-	//             if (bookmark.children) {
-	//                 fetch_bookmarks(bookmark.children);
-	//             }
-	//         });
-	//     }
+// function fetch_bookmarks(parentNode) {
+//         parentNode.forEach(function(bookmark) {
+//             if(! (bookmark.url === undefined || bookmark.url === null)) {
+//                 bm_urls.push(bookmark.url);
+//             }
+//             if (bookmark.children) {
+//                 fetch_bookmarks(bookmark.children);
+//             }
+//         });
+//     }
 
 	//  chrome.bookmarks.getTree(function(rootNode) {
  //     fetch_bookmarks(rootNode);

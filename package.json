@@ -1,0 +1,24 @@
+{
+  "name": "wolverinePack",
+  "version": "1.0.0",
+  "description": "booklet app ",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dylanlott/wolverinePack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dylanlott/wolverinePack/issues"
+  },
+  "homepage": "https://github.com/dylanlott/wolverinePack",
+  "devDependencies": {
+    "passport-google-oauth": "^0.2.0",
+    "passport-local": "^1.0.0"
+  }
+}
