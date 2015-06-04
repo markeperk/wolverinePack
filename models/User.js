@@ -6,13 +6,13 @@ var q = require('q');
 var userSchema = new Schema({
 	name: String,
 	email: { type: String, unique: true },
-	twitter: { 
-		id:  { type: String, unique: true },
-		token: String,
-		tokenSecret: String
+	google: {
+		id: String,
+		token: String, 
+		email: {type: String, unique: true},
+		name: String
 	},
-	password: String,
-	favorite_places: [{type: Schema.Types.ObjectId, ref: 'Place'}]//referenced model
+	password: String
 });
 
 //pre('save') is mongoose middleware that runs before every user is created

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/dylanlott/wolverinePack",
   "devDependencies": {
+    "emailjs": "^0.3.16",
     "passport-google-oauth": "^0.2.0",
     "passport-local": "^1.0.0"
   },
