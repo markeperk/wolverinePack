@@ -46,7 +46,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 //Auth Endpoints 
-//Sign u / Add User 
+//Sign Up && Add User 
 app.post('/api/users', function(req, res) {
 	User.findOne({ email: req.body.email }).exec().then(function(user) {
 		//if we found a user, it's a duplicate
