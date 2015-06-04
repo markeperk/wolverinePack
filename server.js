@@ -12,6 +12,9 @@ app.use(passport.initialize());
 app.use(session({secret: 'wolverinePack'})); 
 app.use(passport.session()); 
 
+//Controllers 
+var BookmarksCtrl = require('./controllers/BookmarksCtrl'); 
+
 //Models
 var User = require('./models/User'); 
 
@@ -78,9 +81,11 @@ app.post('/api/users/auth', passport.authenticate('local', { failureRedirect: '/
 	return res.json({message: "you logged in"});
 });
 
-//get users 
-
 //End of Auth 
+
+//Endpoints 
+app.get('/api/:user_id/bookmarks', BookmarksCtrl.getBookmarks); 
+app.post('/api/:user_id/bookmarks', BookmarksCtrl.add); 
 
 //Database Connection 
 mongoose.connect('mongodb://localhost/booklet');
