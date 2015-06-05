@@ -3,11 +3,9 @@
 
 var app = angular.module('booklet');
 
-app
-	.controller('BookmarksCtrl', function(){
+app.controller('BookmarksCtrl', function(){
 
 //get Bookmarks 
-
 $scope.bookmarks = bookmarks; 
 
   chrome.bookmarks.getTree(function(bookmarkTree){

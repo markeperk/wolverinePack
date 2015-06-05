@@ -14,11 +14,16 @@ app
           templateUrl : 'app/home/home.html',
           controller  : 'HomeCtrl'
       })
+      .state('signup', {
+          url: 
+          templateUrl: ''
+          controller: 'SignupCtrl'
+      })
       .state('login', {
       		url: '/login',
           templateUrl : 'app/login/login.html',
           controller  : 'LoginCtrl'
-      });
+      })
       // .state('secure', {
       //     abstract: true,
       //     template: '<div ui-view>',
@@ -35,5 +40,8 @@ app
       //     controller: 'DashboardCtrl'
       // });
 });
+
+//declare URL for Server and Endpoints
+app.constant=('API', 'localhost:8080'); 
 
 })();

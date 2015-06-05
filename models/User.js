@@ -12,7 +12,9 @@ var userSchema = new Schema({
 		email: {type: String, unique: true},
 		name: String
 	},
-	password: String
+	password: String,
+	following: [{type: Schema.Types.ObjectId, ref: 'Following'}],
+	favorites: [{type: Schema.Types.ObjectId, ref: 'Favorites'}]//referenced model
 });
 
 //pre('save') is mongoose middleware that runs before every user is created

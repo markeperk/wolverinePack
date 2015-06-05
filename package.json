@@ -28,5 +28,8 @@
     "passport-local": "^1.0.0",
     "bcryptjs": "^2.1.0",
     "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "bson": "^0.3.2"
   }
 }

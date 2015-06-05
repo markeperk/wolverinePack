@@ -48,12 +48,11 @@ passport.use(new LocalStrategy({
 
 //Google Auth Start
 passport.use(new GoogleStrategy({
-
         clientID        : configAuth.googleAuth.clientID,
         clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
-
     },
+    
     function(token, refreshToken, profile, done) {
 
         // make the code asynchronous
@@ -102,9 +101,18 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+var requireAuth = function(req, res, next){
+	if(!req.isAuthenticated()){
+		return res.status(401).end(); 
+	}
+	console.log(req.user); 
+	next();
+}
+
 //Auth Endpoints 
 //Sign Up && Add User 
 app.post('/api/users', function(req, res) {
+	console.log("users api hit"); 
 	User.findOne({ email: req.body.email }).exec().then(function(user) {
 		//if we found a user, it's a duplicate
 		if (user) {
@@ -130,7 +138,14 @@ app.post('/api/users/auth', passport.authenticate('local', { failureRedirect: '/
 	return res.json({message: "you logged in"});
 });
 
-//End of Auth 
+app.get('/api/auth/logout', function(req, res){
+	req.logout(); 
+	return res.status(200).json({message: "Logged Out"}).end(); 
+})
+//End of Auth Endpoints 
+
+//Favorite Bookmarks
+
 
 //Endpoints 
 app.get('/api/:user_id/bookmarks', BookmarksCtrl.getBookmarks); 
