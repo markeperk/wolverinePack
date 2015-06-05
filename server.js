@@ -130,7 +130,15 @@ app.post('/api/users/auth', passport.authenticate('local', { failureRedirect: '/
 	return res.json({message: "you logged in"});
 });
 
+app.get('/api/auth/logout', function(req, res){
+	req.logout(); 
+	return res.redirect('/');
+})
+
 //End of Auth 
+
+//Favorite Bookmarks
+
 
 //Endpoints 
 app.get('/api/:user_id/bookmarks', BookmarksCtrl.getBookmarks); 
