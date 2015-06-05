@@ -36,4 +36,7 @@ app
       // });
 });
 
+//declare URL for Server and Endpoints
+app.constant=('API', 'localhost:8080'); 
+
 })();
