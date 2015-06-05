@@ -1,0 +1,85 @@
+menu {
+  padding: 0;
+}
+.logo {
+  height: 75px;
+  -webkit-transition: 0.5s;
+          transition: 0.5s;
+}
+.chrome {
+  margin-top: 20px;
+  -webkit-transition: 0.5s;
+          transition: 0.5s;
+}
+.header {
+  margin-top: 20px;
+  height: 100px;
+  border-bottom: 1px solid #0c273d;
+  -webkit-transition: 0.5s;
+          transition: 0.5s;
+}
+.welcome {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  margin-top: 1em;
+  -webkit-transition: 0.5s;
+          transition: 0.5s;
+}
+.icons {
+  margin-top: 40px;
+  -webkit-transition: 0.5s;
+          transition: 0.5s;
+}
+.book {
+  font-weight: 400;
+}
+.isort1 {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.isort2 {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+.isort3 {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.ui-view {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.video {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.fa-folder-open-o {
+  font-size: 5em;
+}
+.fa-connectdevelop {
+  font-size: 5em;
+}
+.fa-search {
+  font-size: 5em;
+}
+footer {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #0c273d;
+}
+@media (max-width: 550px) {
+  .header {
+    padding: 0;
+  }
+  .logo {
+    height: 50px;
+    margin-top: 20px;
+  }
+  .icons {
+    text-align: center;
+  }
+  .chrome {
+    margin-top: 25px;
+    padding: 1px 10px;
+  }
+}
