@@ -1,15 +1,19 @@
-angular.module('wolverinePack')
+(function(){
+	'use strict';
 
-.controller('BookmarksCtrl', function(){
+var app = angular.module('booklet');
+
+app
+	.controller('BookmarksCtrl', function(){
 
 //get Bookmarks 
 
 $scope.bookmarks = bookmarks; 
 
   chrome.bookmarks.getTree(function(bookmarkTree){
-    console.log(JSON.stringify(bookmarkTree))
+    console.log(JSON.stringify(bookmarkTree));
     bookmarks = JSON.stringify(bookmarkTree);
-  })
+  });
 
 // function fetch_bookmarks(parentNode) {
 //         parentNode.forEach(function(bookmark) {
@@ -54,4 +58,7 @@ $scope.bookmarks = bookmarks;
 	// 	   console.log("bookmark changed .. " +  id);
 	// 	});
 
-})
+});
+
+
+})();
