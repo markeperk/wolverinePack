@@ -3,11 +3,18 @@
 
 var app = angular.module('booklet');
 
-app
-	.controller('LoginCtrl', function(){
+app.controller('LoginCtrl', function($scope, $http, $q, API){
 
-//get Bookmarks 
-
-});
+	var dfd = $q.defer; 
+		$http({
+			method: 'GET', 
+			url: API + '/api/users/auth' //url always needs initial slash
+		})
+		.then(function(res) {
+			dfd.resolve(res); 
+		}); 
+		
+	return dfd.promise; 
+	});
 
 })();

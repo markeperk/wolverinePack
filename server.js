@@ -48,12 +48,11 @@ passport.use(new LocalStrategy({
 
 //Google Auth Start
 passport.use(new GoogleStrategy({
-
         clientID        : configAuth.googleAuth.clientID,
         clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
-
     },
+    
     function(token, refreshToken, profile, done) {
 
         // make the code asynchronous
@@ -143,8 +142,7 @@ app.get('/api/auth/logout', function(req, res){
 	req.logout(); 
 	return res.status(200).json({message: "Logged Out"}).end(); 
 })
-
-//End of Auth 
+//End of Auth Endpoints 
 
 //Favorite Bookmarks
 
