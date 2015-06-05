@@ -16,8 +16,6 @@ module.exports = {
 		chrome.bookmarks.create({
 			'title': 'Extensions doc', 
 			'url': req.body
-		} function(bookmark){
-			console.log("bookmark created ", bookmark); 
 		}); 
 	},
 
