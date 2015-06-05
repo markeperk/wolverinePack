@@ -15,7 +15,6 @@ var userSchema = new Schema({
 	password: String,
 	following: [{type: Schema.Types.ObjectId, ref: 'Following'}],
 	favorites: [{type: Schema.Types.ObjectId, ref: 'Favorites'}]//referenced model
-
 });
 
 //pre('save') is mongoose middleware that runs before every user is created
