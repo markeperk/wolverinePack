@@ -1,18 +1,14 @@
 (function(){
-	'use strict';
+	// 'use strict';
 
-var app = angular.module('booklet');
+angular.module("booklet")
 
-app.controller('LoginCtrl', function($scope, $http, $q, API){
-	var dfd = $q.defer;
-	$http({
-		method: 'GET', 
-		url: API + '/api/users/auth' //url always needs initial slash
-	})
-	.then(function(res) {
-		dfd.resolve(res); 
+	.controller('LoginCtrl', function($scope) {
+		$scope.login = function(user){
+			console.log(user);
+		// authService.register(user).then(function(response){
+		// 	console.log(response);
+		// })
+		};
 	});
-	console.log("Logged in ", user); 
-	return dfd.promise;
-	});
-}();
+})();

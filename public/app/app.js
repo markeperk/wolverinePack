@@ -1,27 +1,27 @@
 (function(){
-  'use strict';
+  // 'use strict';
 
-var app = angular.module('booklet', [ 'ui.router']);
+angular
+  .module("booklet", ['ui.router'])
 
 //config
-app
 	.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.when('', '/');
 		$urlRouterProvider.otherwise('/');
 		$stateProvider
 		 	.state('home', {
 		 			url: '/',
-          templateUrl : 'app/home/home.html',
+          templateUrl : './app/home/home.html',
           controller  : 'HomeCtrl'
       })
       .state('signup', {
-          url: 
-          templateUrl: ''
+          url: '/signup',
+          templateUrl: './app/signup/signup.html',
           controller: 'SignupCtrl'
       })
       .state('login', {
       		url: '/login',
-          templateUrl : 'app/login/login.html',
+          templateUrl : './app/login/login.html',
           controller  : 'LoginCtrl'
       })
       // .state('secure', {
@@ -39,9 +39,5 @@ app
       //     templateUrl: 'app/secure/dashboard.html',
       //     controller: 'DashboardCtrl'
       // });
-});
-
-//declare URL for Server and Endpoints
-app.constant=('API', 'localhost:8080'); 
-
+  })
 })();
