@@ -4,11 +4,12 @@
 angular.module("booklet")
 
 	.controller('LoginCtrl', function($scope) {
-		$scope.login = function(user){
-			console.log(user);
-		// authService.register(user).then(function(response){
-		// 	console.log(response);
-		// })
+		$scope.login = function() {
+			usersService.login($scope.email, $scope.password).then(function() {
+				$location.path('/home');
+			}).catch(function(err) {
+				$scope.error = err;
+			});
 		};
 	});
-})();
+})(); 
