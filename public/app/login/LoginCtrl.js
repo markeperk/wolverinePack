@@ -1,15 +1,14 @@
 (function(){
 	// 'use strict';
 
-angular.module("booklet")
+angular.module('booklet').controller('LoginCtrl', function($scope, $location, UsersService) {
 
-	.controller('LoginCtrl', function($scope) {
-		$scope.login = function() {
-			usersService.login($scope.email, $scope.password).then(function() {
-				$location.path('/home');
-			}).catch(function(err) {
-				$scope.error = err;
-			});
-		};
-	});
+	$scope.login = function() {
+		UsersService.login($scope.email, $scope.password).then(function() {
+			$location.path('/home');
+		}).catch(function(err) {
+			$scope.error = err;
+		});;
+	};
+});
 })(); 

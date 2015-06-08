@@ -1,4 +1,4 @@
-angular.module("booklet").service('usersService', function($http, $q) {
+angular.module('booklet').service('LoginService', function($http, $q) {
 	this.login = function(email, password) {
 		var deferred = $q.defer();
 		$http({

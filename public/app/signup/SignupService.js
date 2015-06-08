@@ -1,6 +1,6 @@
-angular.module("booklet").service('usersService', function($http, $q) {
+angular.module('booklet').service('SignupService', function($http, $q) {
 
-	this.signup = function(email, password, firstName, lastName) {
+	this.signup = function(email, password, name) { 
 		var deferred = $q.defer();
 		$http({
 			method: 'POST',
@@ -8,7 +8,7 @@ angular.module("booklet").service('usersService', function($http, $q) {
 			data:  {
 				email: email,
 				password: password,
-				name: firstName
+				name: name
 			}
 		}).then(function(res) {
 			deferred.resolve(res.data);
