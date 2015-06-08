@@ -3,15 +3,32 @@
 
 var app = angular.module('booklet');
 
-app.controller('BookmarksCtrl', function(){
+app.controller('DashboardCtrl', function($scope){
 
 //get Bookmarks 
-$scope.bookmarks = bookmarks; 
 
-  chrome.bookmarks.getTree(function(bookmarkTree){
-    console.log(JSON.stringify(bookmarkTree));
-    bookmarks = JSON.stringify(bookmarkTree);
+  // chrome.bookmarks.getTree(function(bookmarkTree){
+  //   console.log(JSON.stringify(bookmarkTree));
+  //   bookmarks = JSON.stringify(bookmarkTree);
+
+  // });
+
+var bookmarkTreeNodes = chrome.bookmarks.getTree(
+  function(bookmarkTreeNodes) {
+   console.log(bookmarkTreeNodes);
   });
+}
+
+function traverseBookmarks(bookmarkTreeNodes) {
+    for(var i=0;i<bookmarkTreeNodes.length;i++) {
+        console.log(bookmarkTreeNodes[i].title, bookmarkTreeNodes[i].url ? bookmarkTreeNodes[i].url : "[Folder]");
+
+        if(bookmarkTreeNodes[i].children) {
+            traverseBookmarks(bookmarkTreeNodes[i].children);
+        } 
+
+    }
+}
 
 // function fetch_bookmarks(parentNode) {
 //         parentNode.forEach(function(bookmark) {

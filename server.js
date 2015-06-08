@@ -24,7 +24,7 @@ var BookmarksCtrl = require('./controllers/BookmarksCtrl');
 var User = require('./models/User');
 
 //Configuration Files 
-var configAuth = require('./auth'); 
+var configAuth = require('./config/auth'); 
 
 //Auth -- Local Strategy 
 passport.use(new LocalStrategy({
@@ -33,7 +33,7 @@ passport.use(new LocalStrategy({
 	//define how we match user credentials to db values
 	User.findOne({ email: email }, function(err, user){
 		if (!user) {
-			done(new Error("This user does not exist :)"));
+			done(new Error("This user does not exist"));
 		}
 		user.verifyPassword(password).then(function(doesMatch) {
 			if (doesMatch) {
@@ -89,7 +89,19 @@ passport.use(new GoogleStrategy({
         });
 
     }));
+
+// send to google to do the authentication
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+// the callback after google has authenticated the user
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        successRedirect : '/',
+        failureRedirect : '/login'
+    }));
 //End of Google Auth
+
+
 
 passport.serializeUser(function(user, done) {
   done(null, user._id);
@@ -101,6 +113,8 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+
+//login requirement for page to be viewed
 var requireAuth = function(req, res, next){
 	if(!req.isAuthenticated()){
 		return res.status(401).end(); 
@@ -133,15 +147,20 @@ app.post('/api/users', function(req, res) {
 	})
 });
 
-//Login 
+//Login
+
+//Local 
 app.post('/api/users/auth', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
 	return res.json({message: "you logged in"});
 });
 
+//logout
 app.get('/api/auth/logout', function(req, res){
 	req.logout(); 
 	return res.status(200).json({message: "Logged Out"}).end(); 
 })
+
+
 //End of Auth Endpoints 
 
 //Favorite Bookmarks

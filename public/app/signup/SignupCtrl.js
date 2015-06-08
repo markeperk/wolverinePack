@@ -1,27 +1,17 @@
 (function(){
-	'use strict';
 
-var app = angular.module('booklet');
+angular.module('booklet').controller('SignupCtrl', function($scope, UsersService) {
 
-app.controller('SignupCtrl', function($scope, $http, $q, API){
-
-$scope.signup = function(user){
-
-	var dfd=$q.defer; 
-	$http({
-		method: 'POST', 
-		url: API + '/api/users',
-		data: {
-			"fullName": user.fullName, 
-			"email": user.email, 
-			"password": user.password
+	$scope.signup = function(user) {
+		if (user.password !== user.password2) {
+			$scope.error = "Please make sure your passwords match.";
+			return;
 		}
-	})
-	.then(function(res) {
-		dfd.resolve(res); 
-	}); 
-	console.log("User created: ", user); 
-	return dfd.promise; 
-
-	}
-}();
+		UsersService.signup(user.email, user.password, user.name).then(function(new_user) {
+			console.log("success!", new_user);
+		}).catch(function(err) {
+			$scope.error = err.message;
+		});
+	};
+});
+})(); 

@@ -1,8 +1,19 @@
 (function(){
-	'use strict';
+	// 'use strict';
 
-var app = angular.module('booklet');
+angular.module('booklet').controller('LoginCtrl', function($scope, $location, UsersService) {
 
+<<<<<<< HEAD
+	$scope.login = function() {
+		UsersService.login($scope.email, $scope.password).then(function() {
+			$location.path('/home');
+		}).catch(function(err) {
+			$scope.error = err;
+		});;
+	};
+});
+})(); 
+=======
 app.controller('LoginCtrl', function($scope, $http, $q, API){
 	$scope.login = function(user){
 		var dfd = $q.defer;
@@ -22,3 +33,4 @@ app.controller('LoginCtrl', function($scope, $http, $q, API){
 		});
 	}
 }();
+>>>>>>> 4d5ffdcd4e087ada7d3808a31812ab62d0758016
