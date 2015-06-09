@@ -1,23 +1,26 @@
 {
     "manifest_version": 2,
-    "name": "Wolverine Pack",
+    "name": "Booklet",
     "description": "See and organize your bookmarks as trees",
     "version": "1.0",
     "chrome_url_overrides" : {
-    	"newtab": "/public/index.html"
+    	"newtab": "/public/app/signup/signup.html"
     },
+    "content_scripts": [ {
+      "css": [
+        "./public/assets/css/normalize.css", 
+        "./public/assets/css/skeleton.css", 
+        "./public/assets/css/style.css", 
+        "./public/assets/css/style.styl"
+      ],
+      "matches": [ "http://*/*", "https://*/*"]
+    }]
 
-    // "content_scripts": [ {
-    //     "css": ["/public/assets/css/normalize.css"]
-
-    //   } ],
-
-
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-    "permissions": [
-    	"bookmarks",
-        "tabs",
-        "unlimitedStorage",
-        "management"
-    ]
+    // "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    // "permissions": [
+    // 	"bookmarks",
+    //     "tabs",
+    //     "unlimitedStorage",
+    //     "management"
+    // ]
 }
